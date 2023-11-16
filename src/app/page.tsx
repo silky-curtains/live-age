@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 import { CalendarIcon } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { format } from "date-fns";
+import { fontMono } from "@/lib/fonts";
 
 function calculateAge(birthDate: Date | undefined) {
   if (!birthDate) {
@@ -33,7 +34,7 @@ const Home = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setAge(calculateAge(date));
-    }, 10);
+    }, 25);
 
     return () => clearInterval(interval);
   }, [date]);
@@ -83,7 +84,7 @@ const Home = () => {
         )}
         {hasBegun && (
           <div className="text-center">
-            <div className="text-4xl">{age}</div>
+            <div className={`text-4xl ${fontMono.className}`}>{age}</div>
             <div className="mt-4 text-lg">Years</div>
             <Button
               className="mt-8 w-full"
